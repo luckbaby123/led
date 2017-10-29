@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>实时监测</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<style>
+		.margin-bottom-20{			
+			margin-bottom: 20px;
+		}
+		.margin-top-15{			
+			margin-top: 15px;
+		}
+	</style>
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+	<div class="row">
+		<div class="text-right col-sm-12">
+			<form role="form" class="form-inline col-sm-12 margin-bottom-20">
+					<div class="form-group">
+						<label for="name" ">请选择设备编号：</label>
+						<select class="form-control ">
+							<option>000001</option>
+							<option>000002</option>
+							<option>000003</option>
+							<option>000004</option>
+							<option>000005</option>
+						</select>
+						<button type="submit " class="btn btn-info ">确定</button>
+					</div>
+				</form>	
+	   </div>			
+		<div class="col-sm-6">       
+		    <div id="eleContainer" style="height:250px;"></div>
+		</div>
+		<div class="col-sm-6">
+		    <div id="volContainer" style="height:250px;"></div>
+		</div>
+	    <div class="col-sm-6 margin-top-15">       
+	        <div id="eleWorkContainer" style="height:250px; "></div>
+	    </div>       
+	</div>       
+</div>
+    <!-- 全局js -->
+    <script src="./js/jquery.min.js?v=2.1.4"></script>
+    <script src="./js/bootstrap.min.js?v=3.3.6"></script>
+	<script type="text/javascript" src="./js/echarts.min.js" ></script>
+	<!--<script type="text/javascript" src="js/echarts.js" ></script>-->
+	<script>
+/*电流图表*/	
+var eleContainer= echarts.init(document.getElementById('eleContainer'));
+var eleOption = {
+    title : {
+        text: '实时电流' 
+    },
+    backgroundColor:'#fff',
+    toolbox:{   
+    	feature:{
+    		saveAsImage:{
+    			show:true
+    		}
+    	}
+    	
+    },
+    tooltip : {   	
+        trigger: 'axis'
+    },
+    legend: {
+        data:['电流']
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['6:00:00','6:05:00','6:10:00','6:15:00','6:20:00','6:25:00','6:30:00','6:35:00','6:40:00','6:45:00','6:50:00','6:55:00','7:00:00']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} A'
+            }
+        }
+    ],
+    series : [
+       
+        {
+            name:'电流',
+            type:'line',
+            data:[0.15, 0.16, 0.15, 0.17, 0.15, 0.16, 0.15,0.15, 0.17, 0.15,0.15, 0.17, 0.15],
+                
+        }
+    ]
+};
+// 使用刚指定的配置项和数据显示图表。
+eleContainer.setOption(eleOption);
+
+/*电压图表*/	
+var volContainer= echarts.init(document.getElementById('volContainer'));
+var volOption = {
+    title : {
+        text: '实时电压' 
+    },
+    backgroundColor:'#fff',
+    toolbox:{   
+    	feature:{
+    		saveAsImage:{
+    			show:true
+    		}
+    	}
+    	
+    },
+    tooltip : {   	
+        trigger: 'axis'
+    },
+    legend: {
+        data:['电压']
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['6:00:00','6:05:00','6:10:00','6:15:00','6:20:00','6:25:00','6:30:00','6:35:00','6:40:00','6:45:00','6:50:00','6:55:00','7:00:00']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} V'
+            }
+        }
+    ],
+    series : [
+       
+        {
+            name:'电压',
+            type:'line',
+            data:[222,225,223,224, 222,222,224,223,223, 221,225, 224, 222],
+                
+        }
+    ]
+};
+// 使用刚指定的配置项和数据显示图表。
+volContainer.setOption(volOption);
+
+/*电功图表*/	
+var eleWorkContainer= echarts.init(document.getElementById('eleWorkContainer'));
+var eleWorkOption = {
+    title : {
+        text: '实时电功' 
+    },
+    backgroundColor:'#fff',
+    toolbox:{   
+    	feature:{
+    		saveAsImage:{
+    			show:true
+    		}
+    	}
+    	
+    },
+    tooltip : {   	
+        trigger: 'axis'
+    },
+    legend: {
+        data:['电压']
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['6:00:00','6:05:00','6:10:00','6:15:00','6:20:00','6:25:00','6:30:00','6:35:00','6:40:00','6:45:00','6:50:00','6:55:00','7:00:00']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} J'
+            }
+        }
+    ],
+    series : [
+       
+        {
+            name:'电压',
+            type:'line',
+            data:[222,225,223,224, 222,222,224,223,223, 221,225, 224, 222],
+                
+        }
+    ]
+};
+// 使用刚指定的配置项和数据显示图表。
+eleWorkContainer.setOption(eleWorkOption);
+
+	</script>
+ 
+
+    
+    
+
+</body>
+
+</html>

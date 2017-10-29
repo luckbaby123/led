@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>单设备能耗统计</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<style>
+	
+	</style>
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+	<!--一个月里每天的能耗统计-->
+    <div class="row">         
+        <div class="panel panel-primary col-sm-12">
+			<div class="panel-heading"><h3 class="panel-title">一个月里每天的能耗统计</h3></div>
+			<div class="panel-body col-sm-12">					  
+                <form class="form-horizontal m-t form-inline" >	  
+                    <button type="button" class="btn btn-info pull-right">查找</button>
+				    <div class="form-group col-sm-4 pull-right">
+	                    <label class="col-sm-4 control-label">选择月份:</label>
+	                    <div class="col-sm-4">
+	                        <input class="form-control layer-date" placeholder="YYYY-MM" onclick="laydate({istime: true, format: 'YYYY-MM'})">	                   
+	                    </div>  	                           
+                    </div>
+                    <div class="form-group col-sm-3 pull-right text-right ">
+	                    <label for="name" ">选择设备编号：</label>
+							<select class="form-control">
+								<option>000001</option>
+								<option>000002</option>
+								<option>000003</option>
+								<option>000004</option>
+								<option>000005</option>
+							</select>								
+	                 </div>
+               </form>                
+               <div id="dayEneryContainer" class="col-sm-12" style="height:300px;"></div>
+            </div>
+        </div>                    				
+	</div>
+		<!--一年里每月的能耗统计-->		         
+    <div class="row">           
+        <div class="panel panel-primary col-sm-12">
+			<div class="panel-heading"><h3 class="panel-title">一年里每月的能耗统计</h3></div>
+			<div class="panel-body col-sm-12">					  
+                <form class="form-horizontal m-t form-inline" >	  
+                    <button type="button" class="btn btn-info pull-right">查找</button>
+				    <div class="form-group col-sm-4 pull-right">
+	                    <label class="col-sm-4 control-label">选择年份:</label>
+	                    <div class="col-sm-4">
+	                        <input class="form-control layer-date" placeholder="YYYY" onclick="laydate({istime: true, format: 'YYYY'})">	                   
+	                    </div>  	                           
+                    </div>
+                    <div class="form-group col-sm-3 pull-right text-right ">
+	                    <label for="name" ">选择设备编号：</label>
+							<select class="form-control">
+								<option>000001</option>
+								<option>000002</option>
+								<option>000003</option>
+								<option>000004</option>
+								<option>000005</option>
+							</select>								
+	                 </div>
+               </form>                
+               <div id="monthEneryContainer" class="col-sm-12" style="height:300px;"></div>
+            </div>
+		</div>           
+    </div>
+    <div class="row">            
+        <div class="panel panel-primary col-sm-12">
+			<div class="panel-heading">
+				<h3 class="panel-title">一年的能耗统计</h3>
+			</div>
+			<div class="panel-body col-sm-12">					  
+                <form class="form-horizontal m-t form-inline" >	  
+                    <button type="button" class="btn btn-info pull-right">查找</button>
+				    <div class="form-group col-sm-4 pull-right">
+	                    <label class="col-sm-4 control-label">选择年份:</label>
+	                    <div class="col-sm-4">
+	                        <input class="form-control layer-date" placeholder="YYYY" onclick="laydate({istime: true, format: 'YYYY'})">	                   
+	                    </div>  	                           
+                    </div>
+                    <div class="form-group col-sm-3 pull-right text-right ">
+	                    <label for="name" ">选择设备编号：</label>
+							<select class="form-control">
+								<option>000001</option>
+								<option>000002</option>
+								<option>000003</option>
+								<option>000004</option>
+								<option>000005</option>
+							</select>								
+	                 </div>
+               </form>                
+               <div id="yearEneryContainer" class="col-sm-12" style="height:300px;"></div>
+            </div>
+		</div>
+		</div>           
+     </div>
+</div>
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+	<script type="text/javascript" src="./js/echarts.min.js" ></script>
+	<!--<script type="text/javascript" src="js/echarts.js" ></script>-->
+	
+	 <!-- layerDate plugin javascript -->
+    <script src="js/plugins/layer/laydate/laydate.js"></script>
+    <script>
+    	
+		/*月份选择*/
+	
+    	/*一个月里每天的能耗统计*/	
+		var dayEneryContainer= echarts.init(document.getElementById('dayEneryContainer'));
+		var dayOption = {
+			title : {
+            text: '一个月里每天的能耗统计'
+        },
+        tooltip: {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+        legend: {
+            data:['用电量','电费']
+        },
+        grid:{
+            x:40,
+            x2:40,
+            y2:24
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : true,
+                data : ['2017-01','2017-02','2017-03','2017-04','2017-05','2017-06','2017-07','2017-08','2017-09','2017-10','2017-11','2017-12'],
+             
+            }
+        ],
+        yAxis : [             
+              {
+                type : 'value',
+                min:0,
+                name:'用电量(kw.h)',             
+                axisLine : {
+					lineStyle : {
+						color : '#c23531'
+					}
+				}
+
+           },
+            {
+                type : 'value',            
+                min:0,
+                name:'电费(元)', 
+                axisLine : {
+					lineStyle : {
+						color : '#2f4554'
+					}
+				}
+                
+            }
+        ],
+        series : [
+            {
+                name:'用电量',
+                type:'bar',
+                data:[11, 11, 15, 13, 12, 13, 10,15, 13, 12, 13, 10],               
+                yAxisIndex: 0,
+
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                },
+                itemStyle : {  
+                                normal : {  
+                                    lineStyle:{  
+                                        color:'#c23531'  
+                                    }  
+                                }  
+                            }
+            },
+            {
+                name:'电费',
+                type:'bar',
+                data:[3,5,6,7,3,2,6,15,13,12,13,10],
+               yAxisIndex: 1,
+
+                markLine : {
+                    data : [
+                        {type : 'average', name : '平均值'}
+                    ]
+                },
+                itemStyle : {  
+                                normal : {  
+                                    lineStyle:{  
+                                        color:'#2f4554'  
+                                    }  
+                                }  
+                            }
+            }
+        ]
+		};
+		//monthEneryContainer.showLoading(); //数据加载完之前先显示一段简单的loading动画
+
+		
+		// 使用刚指定的配置项和数据显示图表。
+	dayEneryContainer.setOption(dayOption);
+  $(window).resize(dayEneryContainer.resize);
+    	
+    	/*一年里每月的能耗统计*/	
+		var monthEneryContainer= echarts.init(document.getElementById('monthEneryContainer'));
+		var monthOption = {
+			title : {
+            text: '一年里每月的能耗统计'
+        },
+        tooltip: {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+        legend: {
+            data:['用电量','电费']
+        },
+        grid:{
+            x:40,
+            x2:40,
+            y2:24
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : true,
+                data : ['2017-01','2017-02','2017-03','2017-04','2017-05','2017-06','2017-07','2017-08','2017-09','2017-10','2017-11','2017-12'],
+             
+            }
+        ],
+        yAxis : [             
+              {
+                type : 'value',
+                min:0,
+                name:'用电量(kw.h)',             
+                axisLine : {
+					lineStyle : {
+						color : '#c23531'
+					}
+				}
+
+           },
+            {
+                type : 'value',            
+                min:0,
+                name:'电费(元)', 
+                axisLine : {
+					lineStyle : {
+						color : '#2f4554'
+					}
+				}
+                
+            }
+        ],
+        series : [
+            {
+                name:'用电量',
+                type:'bar',
+                data:[11, 11, 15, 13, 12, 13, 10,15, 13, 12, 13, 10],               
+                yAxisIndex: 0,
+
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                },
+                itemStyle : {  
+                                normal : {  
+                                    lineStyle:{  
+                                        color:'#c23531'  
+                                    }  
+                                }  
+                            }
+            },
+            {
+                name:'电费',
+                type:'bar',
+                data:[3,5,6,7,3,2,6,15,13,12,13,10],
+               yAxisIndex: 1,
+
+                markLine : {
+                    data : [
+                        {type : 'average', name : '平均值'}
+                    ]
+                },
+                itemStyle : {  
+                                normal : {  
+                                    lineStyle:{  
+                                        color:'#2f4554'  
+                                    }  
+                                }  
+                            }
+            }
+        ]
+		};
+		//monthEneryContainer.showLoading(); //数据加载完之前先显示一段简单的loading动画
+
+		
+		// 使用刚指定的配置项和数据显示图表。
+monthEneryContainer.setOption(monthOption);
+  $(window).resize(monthEneryContainer.resize);
+  
+  /*一年*/	
+		var yearEneryContainer= echarts.init(document.getElementById('yearEneryContainer'));
+		var yearOption = {
+			title : {
+            text: '一年里每月的能耗统计'
+        },
+        tooltip: {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+        legend: {
+            data:['用电量','电费']
+        },
+        grid:{
+            x:40,
+            x2:40,
+            y2:24
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : true,
+                data : ['2016'],
+             
+            }
+        ],
+        yAxis : [             
+              {
+                type : 'value',
+                min:0,
+                name:'用电量(kw.h)',             
+                axisLine : {
+					lineStyle : {
+						color : '#c23531'
+					}
+				}
+
+           },
+            {
+                type : 'value',            
+                min:0,
+                name:'电费(元)', 
+                axisLine : {
+					lineStyle : {
+						color : '#2f4554'
+					}
+				}
+                
+            }
+        ],
+        series : [
+            {
+                name:'用电量',
+                type:'bar',
+                data:[10],               
+                yAxisIndex: 0,
+
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                },
+                itemStyle : {  
+                                normal : {  
+                                    lineStyle:{  
+                                        color:'#c23531'  
+                                    }  
+                                }  
+                            }
+            },
+            {
+                name:'电费',
+                type:'bar',
+                data:[15],
+               yAxisIndex: 1,
+
+                markLine : {
+                    data : [
+                        {type : 'average', name : '平均值'}
+                    ]
+                },
+                itemStyle : {  
+                                normal : {  
+                                    lineStyle:{  
+                                        color:'#2f4554'  
+                                    }  
+                                }  
+                            }
+            }
+        ]
+		};
+		//monthEneryContainer.showLoading(); //数据加载完之前先显示一段简单的loading动画
+
+		
+// 使用刚指定的配置项和数据显示图表。
+  yearEneryContainer.setOption(yearOption);
+  $(window).resize(yearEneryContainer.resize);
+</script>
+    
+
+</body>
+
+</html>

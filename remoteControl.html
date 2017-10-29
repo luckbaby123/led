@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>远程控制</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<!-- Data Tables -->
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<style>
+		.height-32{
+			height: 32px;
+		}
+	</style>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-12">
+               <ul id="myTab" class="nav nav-tabs">
+					<li class="active"><a href="#single" data-toggle="tab">单个设备控制</a></li>
+					<li><a href="#area" data-toggle="tab">区域设备控制</a></li>
+					<li><a href="#energy" data-toggle="tab">节能方案设备控制</a></li>				
+				</ul>
+				<div id="myTabContent" class="tab-content">
+					<!--单设备控制选项卡内容-->
+					<div class="tab-pane fade in active" id="single">							
+		                <div class="ibox float-e-margins">                  
+		                    <div class="ibox-content">
+		                    	 <table class="table table-striped table-bordered table-hover dataTables-example">
+			                            <thead>
+			                                <tr>
+			                                    <th>设备ID</th>
+			                                    <th>设备编号</th>
+			                                    <th>设备类型</th>
+			                                    <th>设备状态</th>
+			                                    <th>所属区域</th>
+			                                    <th>经度</th>
+			                                    <th>纬度</th>                                   
+			                                    <th>操作</th>
+			                                </tr>
+			                            </thead>
+			                            <tbody>     
+			                                <tr class="gradeA">
+			                                    <td>1</td>
+			                                    <td>000001</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                    
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>2</td>
+			                                    <td>000002</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-danger">异常</button></td>
+			                                    <td class="center">西区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>3</td>
+			                                    <td>000003</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>4</td>
+			                                    <td>000004</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>5</td>
+			                                    <td>000005</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>6</td>
+			                                    <td>000006</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                    
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>7</td>
+			                                    <td>000007</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeC">
+			                                    <td>8</td>
+			                                    <td>000008</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>9</td>
+			                                    <td>000009</td>
+			                                    <td>LED</td>                                
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeA">
+			                                    <td>10</td>
+			                                    <td>000010</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>
+			                                <tr class="gradeX">
+			                                    <td>11</td>
+			                                    <td>000011</td>
+			                                    <td>LED</td>
+			                                    <td><button type="button" class="btn btn-info">正常</button></td>
+			                                    <td class="center">东区</td>
+			                                    <td>113.32322</td>
+			                                    <td>22.23243</td>
+			                                    <td class="center">
+			                                    	<button type="button" class="btn btn-info">开启</button>
+			                                    	<button type="button" class="btn btn-warning">停用</button>
+			                                    </td>
+			                                </tr>                                
+			                            </tbody>
+			                            <tfoot>
+			                                <tr>
+			                                    <th>设备ID</th>
+			                                    <th>设备编码</th>
+			                                    <th>设备类型</th>
+			                                    <th>设备状态</th>
+			                                    <th>所属区域</th>
+			                                    <th>经度</th>
+			                                    <th>纬度</th>
+			                                    <th>操作</th>
+			                                </tr>
+			                            </tfoot>
+			                        </table>
+		                                         
+				            </div>
+				        </div>
+					</div>
+					<!--区域设备控制选项卡内容-->
+					<div class="tab-pane fade" id="area">
+						<div class="tab-pane fade in active" id="single">							
+			                <div class="ibox float-e-margins">                  
+			                    <div class="ibox-content">
+			                        <table class="table table-striped table-bordered table-hover dataTables-example">
+		                            <thead>
+		                                <tr>
+		                                    <th>区域ID</th>
+		                                    <th>设备数量</th>
+		                                    <th>所在地址</th>
+		                                    <th>所属区域</th>		                                  	                                                                      
+		                                    <th>操作</th>
+		                                </tr>
+		                            </thead>
+		                            <tbody>     
+		                                <tr class="gradeA">
+		                                    <td>1</td>
+		                                    <td>230</td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>东区</td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>
+		                                <tr class="gradeA">
+		                                    <td>2</td>
+		                                    <td>250</td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>西区</td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>
+		                                <tr class="gradeA">
+		                                    <td>3</td>
+		                                    <td>152</td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>北区</td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>
+		                                <tr class="gradeA">
+		                                    <td>4</td>
+		                                    <td>565</td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>全部区域</td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>                                             
+		                            </tbody>
+		                            <tfoot>
+		                                <tr>
+		                                   <th>区域ID</th>
+		                                    <th>设备数量</th>
+		                                    <th>所在地址</th>
+		                                    <th>所属区域</th>		                                  	                                                                      
+		                                    <th>操作</th>
+		                                </tr>
+		                            </tfoot>
+		                        </table>                 
+					            </div>
+					        </div>
+						</div>
+					</div>
+					<!--节能方案控制选项卡内容-->
+					<div class="tab-pane fade" id="energy">
+						<div class="tab-pane fade in active" id="single">							
+			                <div class="ibox float-e-margins">                  
+			                    <div class="ibox-content">
+			                        <table class="table table-striped table-bordered table-hover dataTables-example">
+		                            <thead>
+		                                <tr>
+		                                    <th>方案类型</th>
+		                                    <th>方案内容</th>
+		                                    <th>所在地址</th>
+		                                    <th>选择区域</th>		                                  	                                                                      
+		                                    <th>操作</th>
+		                                </tr>
+		                            </thead>
+		                            <tbody>     
+		                                <tr class="gradeA">
+		                                    <td>方案1</td>
+		                                    <td>隔一灭一</td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>
+		                                    	<select class="form-control height-32">
+												  <option>东区</option>
+												  <option>西区</option>
+												  <option>北区</option>
+												  <option>全部</option>
+												</select>
+		                                    </td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>
+		                                <tr class="gradeA">
+		                                    <td>方案2</td>
+		                                    <td>隔二灭一</td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>
+		                                    	<select class="form-control height-32">
+												  <option>东区</option>
+												  <option>西区</option>
+												  <option>北区</option>
+												  <option>全部</option>
+												</select>
+		                                    </td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>
+		                                <tr class="gradeA">
+		                                    <td>方案3</td>
+		                                    <td>隔三灭一</td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>
+		                                    	<select class="form-control height-32">
+												  <option>东区</option>
+												  <option>西区</option>
+												  <option>北区</option>
+												  <option>全部</option>
+												</select>
+		                                    </td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>
+		                                <tr class="gradeA">
+		                                    <td>方案4（定时）</td>
+		                                    <td>
+		                                    	<select class="form-control height-32">
+												  <option>隔一灭一</option>
+												  <option>隔二灭一</option>
+												  <option>隔三灭一</option>
+												  <option>全部</option>
+												</select>
+		                                    </td>
+		                                    <td>中山市东区博爱七路25号中山职业技术学院</td>
+		                                    <td>
+		                                    	<select class="form-control height-32">
+												  <option>东区</option>
+												  <option>西区</option>
+												  <option>北区</option>
+												  <option>全部</option>
+												</select>
+		                                    </td>		                                   
+		                                    <td>
+		                                    	<button type="button" class="btn btn-info">开启</button>
+		                                    	<button type="button" class="btn btn-warning">停用</button>
+		                                    </td>		                                    
+		                                </tr>                                             
+		                            </tbody>
+		                            <tfoot>
+		                                <tr>
+		                                   <th>区域ID</th>
+		                                    <th>设备数量</th>
+		                                    <th>所在地址</th>
+		                                    <th>选择区域</th>		                                  	                                                                      
+		                                    <th>操作</th>
+		                                </tr>
+		                            </tfoot>
+		                        </table>                 
+					            </div>
+					        </div>
+						</div>
+					</div>
+					
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+
+    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
+
+    <!-- Data Tables -->
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+ <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable();
+
+            /* Init DataTables */
+            var oTable = $('#editable').dataTable();
+
+            /* Apply the jEditable handlers to the table */
+            oTable.$('td').editable('../example_ajax.php', {
+                "callback": function (sValue, y) {
+                    var aPos = oTable.fnGetPosition(this);
+                    oTable.fnUpdate(sValue, aPos[0], aPos[1]);
+                },
+                "submitdata": function (value, settings) {
+                    return {
+                        "row_id": this.parentNode.getAttribute('id'),
+                        "column": oTable.fnGetPosition(this)[2]
+                    };
+                },
+
+                "width": "90%",
+                "height": "100%"
+            });
+
+
+        });
+
+        function fnClickAddRow() {
+            $('#editable').dataTable().fnAddData([
+                "Custom row",
+                "New row",
+                "New row",
+                "New row",
+                "New row"]);
+
+        }
+    </script>
+
+    
+
+</body>
+
+</html>
