@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>主页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GAo0IwDh5D0xSYZSjrg3zNM8W5GZXVsS"></script>
+	<style>
+		.num-style{
+			text-align: center;
+			padding-top: 8px;
+			
+		}
+		#school_map{
+			height:500px;border:#ccc solid 1px; margin-left: 16px;
+		}
+		.modal_message div{
+			margin-bottom: 15px;
+		}
+	</style>
+	
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+        <div class="row">             
+            <!--设备数量-->
+             <div class="col-sm-2">            	
+               <div class="widget style1 navy-bg" >
+                    <div class="row vertical-align">
+                        <div class="col-xs-3">
+                            <i class="fa fa-lightbulb-o fa-3x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                        	<h3>设备数量：</h3>
+                            <h3 class="font-bold num-style">450</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--维修任务-->
+             <div class="col-sm-3">            	
+               <div class="widget style1 yellow-bg" >
+                    <div class="row vertical-align">
+                        <div class="col-xs-3">
+                            <i class="fa fa-wrench fa-3x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                        	<h3>维修任务通知：</h3>
+                            <h3 class="font-bold num-style">2</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>      
+            <!--故障设备数量-->
+             <div class="col-sm-3">            	
+               <div class="widget style1 red-bg" >
+                    <div class="row vertical-align">
+                        <div class="col-xs-2">
+                            <i class="fa fa-warning fa-3x"></i>
+                        </div>
+                        <div class="col-xs-10 text-right">
+                        	<h3>故障设备数量：</h3>
+                            <h3 class="font-bold num-style">2</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--校园温度-->
+             <div class="col-sm-3" style="margin-top: 18px;">            	
+                                   
+                        <div class="col-xs-9 text-right">
+                        	<h3>当前校园温度：20 ℃</h3>   
+                        	<h3>校园相对湿度：90 %</h3>   
+                        </div>
+                 
+            </div>        
+    </div>
+     <!--地图--> 
+    <h2>中山职业技术学院校园路灯分布图：</h2>
+    <span style="color:red;">×点击地图红色标志物可查看当前位置设备信息</span>
+   <!-- 地图-->
+    <div class="row">           	
+    	<div class="col-xs-11"  id="school_map" ></div>
+    </div>
+   <!-- 标志物1模态框-->
+     <div class="modal inmodal" id="market_modal1" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated fadeIn">
+                    <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h2>设备信息</h2>
+			        </div>
+                    <div class="modal-body modal_message">
+                       <div class="row">
+	                       	 <div class="col-xs-4">
+	                        	<span>设备编号：12300</span>	                            
+	                        </div>
+	                        <div class="col-xs-4">
+	                        	<span>电流：0.15A</span>	                            
+	                        </div>
+	                        <div class="col-xs-4">
+	                        	<span>电压：222.22V</span>	                            
+	                        </div>
+                       </div>
+                        <div class="row">
+	                       	 <div class="col-xs-4">
+	                        	<span>电功：33.33W</span>	                            
+	                        </div>
+	                        <div class="col-xs-4">
+	                        	<span>用电量：32.22KW.h</span>	                            
+	                        </div>
+	                       
+                       </div>
+                        <div class="row">
+	                       	 <div class="col-xs-4">
+	                        	<span>经度：113.437966</span>	                            
+	                        </div>
+	                        <div class="col-xs-4">
+	                        	<span>纬度：22.51778 </span>	                            
+	                        </div>	                       
+                       </div>
+                       <div class="row">
+	                       	 <div class="col-xs-12">
+	                        	<span>地址：中山市东区博爱七路25号中山职业技术学院西区</span>	                            
+	                        </div>
+	                                               
+                       </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>                     
+                    </div>
+                </div>
+            </div>
+        </div>        
+            
+ </div>
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+    
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("school_map");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(113.440000,22.518523);//定义一个中心点坐标
+        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+    
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+      /*  map.enableScrollWheelZoom();//启用地图滚轮放大缩小*/
+    /*    map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)*/
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+    
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+	map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+	map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+	map.addControl(ctrl_sca);
+    }
+    
+	/*标志*/
+ 	function addMarker(point, index){  // 创建图标对象   
+ 		/*标志物1*/
+ 		var point = new BMap.Point(113.437966,22.51778);
+ 		var marker1 = new BMap.Marker(point);
+ 		map.addOverlay(marker1);   
+ 		marker1.addEventListener("click", function(){    
+		 	/*alert("您点击了标注");   */ 
+		 	$('#market_modal1').modal();
+		});
+		/*标志物2*/
+ 		var point = new BMap.Point(113.437661,22.518773);
+ 		var marker2 = new BMap.Marker(point);
+ 		map.addOverlay(marker2);   
+ 		marker2.addEventListener("click", function(){    
+		 	/*alert("您点击了标注");   */ 
+		 	$('#market_modal1').modal();
+		});
+		/*标志物1*/
+ 		var point = new BMap.Point(113.438793,22.519663);
+ 		var marker3 = new BMap.Marker(point);
+ 		map.addOverlay(marker3);   
+ 		marker3.addEventListener("click", function(){    
+		 	/*alert("您点击了标注");   */ 
+		 	$('#market_modal1').modal();
+		});
+	}    
+    initMap();//创建和初始化地图
+   
+</script>
+    
+    
+
+</body>
+
+</html>
